@@ -9,7 +9,7 @@
 
 package ie.lyit.testers;
 
-import ie.lyit.hotel.Menu;
+import ie.lyit.hotel.*;
 import ie.lyit.serialize.CustomerSerializer;
 
 public class CustomerSerializerTester {
@@ -18,7 +18,7 @@ public class CustomerSerializerTester {
 		CustomerSerializer customerSerializer = new CustomerSerializer();
 
 		customerSerializer.readRecordsFromFile();
-
+		Customer.setNextNumber(customerSerializer.getNewCustNumber() + 1); 
 		//customerSerializer.writeRecordsToFile();
 		
 		//Create a menu object

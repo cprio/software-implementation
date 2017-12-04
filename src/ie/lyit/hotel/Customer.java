@@ -17,7 +17,7 @@ public class Customer extends Person implements Serializable {//INHERITANCE - Cu
 	private String emailAddress;	// AND emailAddress
 	private static int CustNumber;				// AND number
 		
-	//private static int nextNumber=500001;// static for a unique number - starts off at 500001
+	private static int nextNumber=1;// static for a unique number - starts off at 1
 	
 	// Default Constructor
 	// Called when object is created like this ==>
@@ -25,7 +25,7 @@ public class Customer extends Person implements Serializable {//INHERITANCE - Cu
 	public Customer() {
 		super();		// NOTE: Don't need to call super() explicitly
 		emailAddress=null;
-		//CustNumber=nextNumber++;
+		CustNumber=nextNumber++;
 	}
 	
 	// Initialization Constructor
@@ -37,7 +37,7 @@ public class Customer extends Person implements Serializable {//INHERITANCE - Cu
 		//and then initialize Customers own instance variables
 		this.emailAddress=emailAddress;
 		//And finally set number to static nextNumber before incrementing nextNumber
-		//CustNumber=nextNumber++;
+		CustNumber=nextNumber++;
 	}
 	
 	// OVERRIDING the Person toString() method
@@ -70,14 +70,17 @@ public class Customer extends Person implements Serializable {//INHERITANCE - Cu
 	public String getEmailAddress() {
 		return emailAddress;
 	}
-	// You shouldn't be able to setNumber() as it is unique,
-	// so don't provide a setNumber method
-	public static void setCustNumber(int custNumber) {
-		CustNumber = custNumber;
+	
+	public void setCustNumber(int custNumber) {
+		this.CustNumber = custNumber;
 	}
 	
 	public int getCustNumber() {
 		return CustNumber;
+	}
+	
+	public static void setNextNumber(int number) {
+		Customer.nextNumber = number;
 	}
 	
 	//////////////////////////////////////////////
